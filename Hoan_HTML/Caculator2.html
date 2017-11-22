@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<title>Demo Caculator</title>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 	
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
+
+		<style>
+			#resual{
+				margin: 0px;
+				padding: 30px;
+				background: #9B070A;
+				color: white;
+			}
+		</style>		
+	</head>	
+	<body>			
+		<div class="container-fluid">		
+			<div class="row">		
+				
+				<div class="row" style="margin-left: 20px; margin-right: 20px;">
+				  <div> 					
+							<div class="container">
+								<h3>Caculator</h3>			
+								<p>Nhập các giá trị phù hợp vào ô trống:</p>
+								<form id="pageMain">
+									<div class="form-group">									
+									  <label for="usr">Nhập vào giá trị A:</label>
+									  <input type="text" class="form-control" id="txtA">
+									</div>
+									
+									<div class="form-group">
+									  <label for="pwd">Nhập vào giá trị B:</label>
+									  <input type="text" class="form-control" id="txtB">
+									</div>
+									
+									<div class="form-group">
+									  <label for="pwd">Kết Quả:</label>
+									  <input type="text" class="form-control" id="txtKetQua">
+									</div>
+									
+									<h2></h2>
+									<div class="form-group">									  
+									  <button id = "bttCong" type="button" data-toggle="page-alert" data-delay="3000" data-toggle-id="1" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Cộng</button>									  
+									  <button id = "bttLamLai" type="button" data-toggle="page-alert" data-delay="3000" data-toggle-id="5" class="btn btn-success"><span class="glyphicon glyphicon-share-alt"></span> Làm lại</button>									 									  			
+									
+									</div>
+								</form>
+						</div>
+						
+				<script>
+								
+					$(document).ready(function() {	
+					
+						$("#bttCong").click(function() {
+							console.log("hoan");
+
+							<!-- alert("Button Cộng được Click: " + $("#txtA").val()); -->
+							var strToanTu = "+";
+							var a = $("#txtA").val();
+							var b = $("#txtB").val();							
+							if (strToanTu == "+") {							 					 
+								var c = Number(a) + Number(b);	
+								$("#txtKetQua").val(c);
+							}					
+						});
+						
+						$("#bttLamLai").click(function() {
+							//$("#txtA").val("");			
+							//$("#txtB").val("");			
+							//$("#txtKetQua").val("");
+							$('#pageMain')[0].reset();					
+						});
+				
+				/*
+						$('#txtB').change(function() { 
+							var strToanTu = "+";
+							var a = $("#txtA").val();
+							var b = $("#txtB").val();
+							if (strToanTu == "+") {							 					 
+								var c = Number(a) + Number(b);	
+								$("#txtKetQua").val(c);
+							}
+						});
+				*/
+				
+						$('#txtB').keyup(function() { 
+							var strToanTu = "+";
+							var a = $("#txtA").val();
+							var b = $("#txtB").val();
+							if (strToanTu == "+") {							 					 
+								var c = Number(a) + Number(b);	
+								$("#txtKetQua").val(c);
+							}
+						});
+							
+					});
+				</script>
+				
+
+				
+	</body>
+</html>

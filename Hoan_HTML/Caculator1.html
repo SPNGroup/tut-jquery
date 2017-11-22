@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<title>Demo Caculator</title>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 	
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
+
+		<style>
+			#resual{
+				margin: 0px;
+				padding: 30px;
+				background: #9B070A;
+				color: white;
+			}
+		</style>		
+	</head>	
+	<body>			
+		<div class="container-fluid">		
+			<div class="row">		
+				
+				<div class="row" style="margin-left: 20px; margin-right: 20px;">
+				  <div> 					
+							<div class="container">
+								<h3>Caculator</h3>
+								<p>Thực hành phép toán</p>				
+								<div class="btn-group btn-block">
+									<button class="col-sm-10 btn btn-lg btn-default">CHỌN PHÉP TOÁN</button>								 
+									<button class="col-sm-2 btn btn-lg btn-default dropdown-toggle"data-toggle="dropdown"><span class="caret"></span></button>								 
+									<ul class="dropdown-menu btn-block">
+										<li role="presentation"><a href="#"><span class="glyphicon glyphicon-star-empty"></span> Cộng</a></li>
+										<li role="presentation"><a href="#"><span class="glyphicon glyphicon-star-empty"></span> Trừ</a></li>
+										<li role="presentation"><a href="#"><span class="glyphicon glyphicon-star-empty"></span> Nhân</a></li>
+										<li role="presentation"><a href="#"><span class="glyphicon glyphicon-star-empty"></span> Chia</a></li>						
+									</ul>
+								  </div>		
+								  
+								<h2></h2>
+								<p>Nhập các giá trị phù hợp vào ô trống:</p>
+								<form>
+									<div class="form-group">
+									
+									  <label for="usr">Nhập vào giá trị A:</label>
+									  <input type="text" class="form-control" id="txtA">
+									</div>
+									
+									<div class="form-group">
+									  <label for="pwd">Nhập vào giá trị B:</label>
+									  <input type="text" class="form-control" id="txtB">
+									</div>
+									
+									<h2></h2>
+									<div class="form-group">									  
+									  <button onclick="myFunction_Cong()" type="button" data-toggle="page-alert" data-delay="3000" data-toggle-id="1" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Cộng</button>
+									  <button onclick="myFunction_Tru()" type="button" data-toggle="page-alert" data-delay="3000" data-toggle-id="2" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span> Trừ</button>
+									  <button onclick="myFunction_Nhan()" type="button" data-toggle="page-alert" data-delay="3000" data-toggle-id="3" class="btn btn-primary"><span class="glyphicon glyphicon-remove-sign"></span> Nhân</button>
+									  <button onclick="myFunction_Chia()" type="button" data-toggle="page-alert" data-delay="3000" data-toggle-id="4" class="btn btn-primary"><span class="glyphicon glyphicon-ban-circle"></span> Chia</button>	
+									  <button onclick="myFunction_LamLai()" type="button" data-toggle="page-alert" data-delay="3000" data-toggle-id="5" class="btn btn-success"><span class="glyphicon glyphicon-share-alt"></span> Làm lại</button>									 									  			
+									<h2></h2>
+									<p id="resual"></p>						
+									</div>
+									
+									<!-- Begin thông báo tự động tắt -->
+									<div>							
+										<div class="page-alerts">		
+											<div class="alert alert-success page-alert" id="alert-1" style="display: none;">
+											<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+											<strong>Thành công !</strong> Đã thực hiện phép toán cộng.
+										</div>	
+										</div>	
+
+										<div class="page-alerts">		
+											<div class="alert alert-success page-alert" id="alert-2" style="display: none;">
+											<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+											<strong>Thành công !</strong> Đã thực hiện phép toán trừ.
+										</div>	
+										</div>	
+
+										<div class="page-alerts">		
+											<div class="alert alert-success page-alert" id="alert-3" style="display: none;">
+											<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+											<strong>Thành công !</strong> Đã thực hiện phép toán nhân.
+										</div>	
+										</div>
+
+										<div class="page-alerts">		
+											<div class="alert alert-success page-alert" id="alert-4" style="display: none;">
+											<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+											<strong>Thành công !</strong> Đã thực hiện phép toán chia.
+										</div>	
+										</div>
+
+										<div class="page-alerts">		
+											<div class="alert alert-success page-alert" id="alert-5" style="display: none;">
+											<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+											<strong>Thành công !</strong> Làm lại các phép toán.
+										</div>	
+										</div>									
+									
+									</div>
+									<!-- End thông báo tự động tắt -->
+								</form>
+						</div>
+				<script>
+					function myFunction() {
+						var a = document.getElementById("txtA").value;
+						var b = document.getElementById("txtB").value;
+						var c = Number(a) + Number(b);
+						document.getElementById("resual").innerHTML = a + " + " + b + " = " + c;
+					}
+				</script>
+				
+				<script>
+					function myFunction_Cong() {
+						var a = document.getElementById("txtA").value;
+						var b = document.getElementById("txtB").value;
+						var c = Number(a) + Number(b);
+						document.getElementById("resual").innerHTML = a + " + " + b + " = " + c;
+					}
+				</script>
+				
+				<script>
+				function myFunction_Tru() {
+					var a = document.getElementById("txtA").value;
+					var b = document.getElementById("txtB").value;
+					var c = Number(a) - Number(b);
+					document.getElementById("resual").innerHTML = a + " - " + b + " = " + c;
+				}
+				</script>
+				<script>
+					function myFunction_Nhan() {
+						var a = document.getElementById("txtA").value;
+						var b = document.getElementById("txtB").value;
+						var c = Number(a) * Number(b);
+						document.getElementById("resual").innerHTML = a + " * " + b + " = " + c;
+					}
+				</script>
+				
+				<script>
+					function myFunction_Chia() {
+						var a = document.getElementById("txtA").value;
+						var b = document.getElementById("txtB").value;
+						var c = Number(a) / Number(b);
+						document.getElementById("resual").innerHTML = a + " / " + b + " = " + c;
+					}
+				</script>
+				<script>
+					function myFunction_LamLai() {					
+						document.getElementById("txtA").value = "";
+						document.getElementById("txtB").value = "";
+						document.getElementById("resual").innerHTML = "";					
+					}
+				</script>	
+
+			<script type="text/javascript">
+			$(function() {
+				$('.page-alert').hide();
+				//Show alert
+				$('button[data-toggle="page-alert"]').click(function(e) {
+					e.preventDefault();
+					var id = $(this).attr('data-toggle-id');
+					var alert = $('#alert-' + id);
+					var timeOut;
+					alert.appendTo('.page-alerts');
+					alert.slideDown();
+					
+					//Is autoclosing alert
+					var delay = $(this).attr('data-delay');
+					if(delay != undefined)
+					{
+						delay = parseInt(delay);
+						clearTimeout(timeOut);
+						timeOut = window.setTimeout(function() {
+								alert.slideUp();
+							}, delay);
+					}
+				});
+				
+				//Close alert
+				$('.page-alert .close').click(function(e) {
+					e.preventDefault();
+					$(this).closest('.page-alert').slideUp();
+				});
+				
+				//Clear all
+				$('.clear-page-alerts').click(function(e) {
+					e.preventDefault();
+					$('.page-alert').slideUp();
+				});
+			});
+			</script>
+				
+	</body>
+</html>
